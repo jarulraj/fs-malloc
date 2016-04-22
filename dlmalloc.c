@@ -645,7 +645,10 @@ MAX_RELEASE_CHECK_RATE   default: 4095 unless not HAVE_MMAP
 #ifndef HAVE_MREMAP
 #ifdef linux
 #define HAVE_MREMAP 1
+// TODO: Peloton Changes
+#ifndef _GNU_SOURCE
 #define _GNU_SOURCE /* Turns on mremap() definition */
+#endif
 #else   /* linux */
 #define HAVE_MREMAP 0
 #endif  /* linux */
@@ -812,6 +815,8 @@ extern "C" {
 
 /* ------------------- Declarations of public routines ------------------- */
 
+// TODO: Peloton Changes
+#define USE_DL_PREFIX
 #ifndef USE_DL_PREFIX
 #define dlcalloc               calloc
 #define dlfree                 free

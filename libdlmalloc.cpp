@@ -33,8 +33,6 @@
 #include <stdlib.h>
 #include <new>
 
-class std::bad_alloc;
-
 extern "C" {
   void * dlmalloc (size_t);
   void dlfree (void *);
